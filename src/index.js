@@ -1,9 +1,37 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Box = (/* ???? */) => {
+const Box = (props) => {
 
-  // ?????
+  const colors = (boxColor) => {
+if (boxColor === "blue") {
+  return "primary"
+}
+if (boxColor === "red") {
+  return "danger"
+}
+if (boxColor === "orange") {
+  return "warning"
+}
+
+  } 
+
+  const hideBox = (hidden) => {
+    if (hidden) {
+      return "d-none"
+    }
+    return "" ;
+  }
+
+  console.log(props)
+
+  return (
+    <div className={`alert alert-${colors(props.type)} ${hideBox(props.hide)}`} role="alert">
+{props.message}</div>
+
+
+
+  )
   
 };
 
